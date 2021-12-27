@@ -1,0 +1,13 @@
+input[type=range].rrpsc_rangePicker_sliderComponent {
+  -webkit-appearance: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+input[type=range].rrpsc_rangePicker_sliderComponent::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: black;
+  border-color: black;
+  color: transparent;
+}/*# sourceMappingURL=RRPSComponentStyling.component.css.map */
