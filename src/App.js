@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactRangePickerSmart from "./component/ReactRangePickerSmart";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app" style={{
+      fontFamily: 'Inter, sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '90vh',
+    }}>
+      <h4>React Range Picker Smart - React Component</h4>
+      <ReactRangePickerSmart 
+        title="Set a range for duration"
+        description="Please select a range for your instance"
+        defaultSliderValue={34}
+        dateRangePicker={true}
+      />
     </div>
-  );
+  )
 }
-
-export default App;

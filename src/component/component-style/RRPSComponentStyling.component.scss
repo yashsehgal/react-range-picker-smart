@@ -1,0 +1,80 @@
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: rgb(74, 74, 211);
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+.rrpsc_componentInput {
+    background-color: white;
+    padding: 10px 12px;
+    color: black;
+    border: 3px solid black;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 600;
+    &:focus {
+        outline: none;
+        border-color: blue;
+    }
+    &::placeholder {
+        font-family: inherit;
+        color: #b2b2b2;
+        font-weight: 500;
+        font-size: 14px;
+    }
+}
+
+.rrpsc_componentInput {
+    &__small {
+        width: 30%;
+    }
+    &__medium {
+        width: 60%;
+    }
+    &__large {
+        width: 100%;
+    }
+}
+
+.rrpsc_whiteButton {
+    background-color: white;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        background-color: #dddddd;
+    }
+}
+
+.rrpsc_blueButton {
+    background-color: rgb(74, 74, 211);
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        background-color: rgb(59, 59, 172);
+    }
+}
