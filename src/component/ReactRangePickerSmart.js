@@ -28,7 +28,7 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
           <h4 className="rrpsc_title" style={{ marginBottom: '0', paddingBottom: '0' }}>{RangePickerProperties.title}</h4>
           <p className="rrpsc_description" style={{ marginTop: '8px', fontSize: '14px', color: '#888888' }}>{RangePickerProperties.description}</p>
         </div>
-        <div className="rrpsc_componentWrapper">
+        <div className="rrpsc_componentWrapper" style={{ width: '100%' }}>
           <div className="rrpsc_rangePickerTypeSelector" style={{
             display: 'flex',
             flexDirection: 'row',
@@ -36,7 +36,8 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
             justifyContent: 'flex-start',
             gap: '0.8rem',
             marginBottom: '0',
-            paddingBottom: '0'
+            paddingBottom: '0',
+            width: '100%'
           }}>
             <span className="rrpsc_rangePickerTypeOption rrpsc_rangePickerTypeOption_rangeSlider" style={{
               display: 'flex',
@@ -105,14 +106,21 @@ function RenderRangeSetterComponent({
           color: '#cccccc',
           fontSize: '14px'
         }}>Type a custom range</p>
-        <input type="number" 
-          placeholder="Enter a start value" 
-          className="rrpsc_componentInput rrpsc_componentInput__large"
-        />
-        <input type="number" 
-          placeholder="Enter an end value" 
-          className="rrpsc_componentInput rrpsc_componentInput__large"
-        />
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'auto',
+          gap: '1em',
+          alignItems: 'center'
+        }}>
+          <input type="number" 
+              placeholder="Enter a start value" 
+              className="rrpsc_componentInput "
+          />
+          <input type="number" 
+            placeholder="Enter an end value" 
+            className="rrpsc_componentInput "
+          />
+        </div>
       </React.Fragment>
     )
   }
