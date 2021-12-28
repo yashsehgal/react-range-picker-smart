@@ -1,6 +1,6 @@
 
 const RRPSComponentWrapperStyle = {
-  paddingTop: '1em',
+  paddingTop: '0.6em',
   paddingBottom: '1em',
   paddingRight: '0.8em',
   paddingLeft: '0.8em',
@@ -10,7 +10,7 @@ const RRPSComponentWrapperStyle = {
 };
 
 const RRPSCRangePickerComponentWrapper= {
-  width: '92%',
+  width: '100%',
 };
 
 export {

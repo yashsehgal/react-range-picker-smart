@@ -1,20 +1,26 @@
 import ReactTooltip from "react-tooltip";
 import ReactModal from "react-modal";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { 
   RRPSComponentWrapperStyle, RRPSCRangePickerComponentWrapper
  } from './RRPSComponentStyling';
 
-// import './component-style/RRPSComponentStyling.component.css';
+import './component-style/RRPSComponentStyling.component.css';
 
 export default function ReactRangePickerSmart(RangePickerProperties) {
-
+  // setting default value as 0
+  const [rangeSliderValueRef, setRangeSliderValue] = useState(
+    (RangePickerProperties.defaultSliderValue ? RangePickerProperties.defaultSliderValue : 0)
+  );
+  const [rangeInputSelectorTypeRef, setRangeInputSelectorType] = useState('range-slider');
+  useEffect(() => {
+    setRangeInputSelectorType(rangeInputSelectorTypeRef)
+  })
   return (
     <React.Fragment>
       <div className="react-range-picker-smart-component-wrapper rrpsc_container" style={RRPSComponentWrapperStyle} {...RangePickerProperties}>
         <div className="rrpsc_details_headerWrapper" style={{ 
           width: 'fit-content', 
-          marginBottom: '0.2rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start'
@@ -37,7 +43,11 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
               justifyContent: 'flex-start',
               gap: '0.4rem'
             }}>
-              <input type="radio" name="range-picker-option" value="range-slider" />
+              <input type="radio" name="range-picker-option" value="range-slider" 
+                defaultChecked
+                onSelect={() => setRangeInputSelectorType('range-slider')}
+                onChange={() => setRangeInputSelectorType('range-slider')}
+              />
               <p className="rangeSlider_name">Standard Duration</p>
             </span>
             <span className="rrpsc_rangePickerTypeOption rrpsc_rangePickerTypeOption_rangeInputs" style={{
@@ -47,15 +57,50 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
               justifyContent: 'flex-start',
               gap: '0.4rem'
             }}>
-              <input type="radio" name="range-picker-option" value="range-input" />
+              <input type="radio" name="range-picker-option" value="range-input" 
+                onSelect={() => setRangeInputSelectorType('custom-range-input')} 
+                onChange={() => setRangeInputSelectorType('custom-range-input')}
+              />
               <p className="rangeSlider_name">Set Custom Duration</p>
             </span>
           </div>
           <div className="rrpsc_rangePickerComponentWrapper">
-            <input type="range" className="rrpsc_rangePicker_sliderComponent" style={RRPSCRangePickerComponentWrapper} />
+            <RenderRangeSetterComponent 
+              currentRangeSliderRef={rangeSliderValueRef}
+              currentRangeSliderMethod={setRangeSliderValue}
+              inputTypeRef={rangeInputSelectorTypeRef}
+            />
           </div>
         </div>
       </div>
     </React.Fragment>
   )
+}
+
+function RenderRangeSetterComponent({
+    currentRangeSliderRef,
+    currentRangeSliderMethod,
+    inputTypeRef
+  }) {
+  if (inputTypeRef === 'range-slider') {
+    return (
+      <React.Fragment>
+        <input type="range" className="rrpsc_rangePicker_sliderComponent" style={RRPSCRangePickerComponentWrapper} 
+          data-for="range-slider-value"
+          data-tip=''
+          defaultValue={currentRangeSliderRef}
+          onChange={(rangeSlider) => currentRangeSliderMethod(rangeSlider.target.value)}
+        />
+        <ReactTooltip id="range-slider-value">
+          {currentRangeSliderRef}
+        </ReactTooltip>
+      </React.Fragment>
+    )
+  } else {
+    return (
+      <React.Fragment>
+        Custom input block will come here
+      </React.Fragment>
+    )
+  }
 }
