@@ -6,7 +6,9 @@ const RRPSComponentWrapperStyle = {
   paddingLeft: '0.8em',
   width: 'fit-content',
   border: '1px solid #cccccc',
-  borderRadius: '2px'
+  borderRadius: '2px',
+  boxSizing: 'border-box',
+  overflow: 'hidden'
 };
 
 const RRPSCRangePickerComponentWrapper= {

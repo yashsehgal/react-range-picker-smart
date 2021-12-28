@@ -34,7 +34,9 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            gap: '0.8rem'
+            gap: '0.8rem',
+            marginBottom: '0',
+            paddingBottom: '0'
           }}>
             <span className="rrpsc_rangePickerTypeOption rrpsc_rangePickerTypeOption_rangeSlider" style={{
               display: 'flex',
@@ -99,7 +101,18 @@ function RenderRangeSetterComponent({
   } else {
     return (
       <React.Fragment>
-        Custom input block will come here
+        <p className="rrpsc_rangePicker_customInputComponentTitle" style={{
+          color: '#cccccc',
+          fontSize: '14px'
+        }}>Type a custom range</p>
+        <input type="number" 
+          placeholder="Enter a start value" 
+          className="rrpsc_componentInput rrpsc_componentInput__large"
+        />
+        <input type="number" 
+          placeholder="Enter an end value" 
+          className="rrpsc_componentInput rrpsc_componentInput__large"
+        />
       </React.Fragment>
     )
   }
