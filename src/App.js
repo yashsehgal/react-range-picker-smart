@@ -14,7 +14,8 @@ export default function App() {
       <ReactRangePickerSmart 
         title="Set a range for duration"
         description="Please select a range for your instance"
-        defaultSliderValue={24}
+        defaultSliderValue={34}
+        dateRangePicker={true}
       />
     </div>
   )

@@ -75,6 +75,35 @@ export default function ReactRangePickerSmart(RangePickerProperties) {
             />
           </div>
         </div>
+        <div className="rrpsc_rangePickerComponentCTAWrapper" style={{ 
+          marginTop: '1.8em',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}>
+          <button className="rrpsc_rangePickerComponentCTA_resetButton rrpsc_whiteButton"
+            style={{
+              padding: '0.6em 1.2em',
+              boxShadow: '0 1px 2px 0 rgba(0,0,0,0.2)',
+              fontWeight: '600',
+              fontFamily: 'inherit',
+              border: '2px solid transparent'
+            }}
+            onClick={() => {
+              if (rangeInputSelectorTypeRef === 'range-slider') {
+                setRangeSliderValue(0);
+                let rangeSliderValue = document.getElementById('rrpsc_componentInput_rangeSliderValue');
+                rangeSliderValue.value = 0;
+              } else if (rangeInputSelectorTypeRef === 'custom-range-input') {
+                let customInput_startValue = document.getElementById('rrpsc_componentInput_startValue');
+                let customInput_endValue = document.getElementById('rrpsc_componentInput_endValue');
+                customInput_startValue.value = null;
+                customInput_endValue.value = null;
+              }
+            }}
+          >Reset</button>
+        </div>
       </div>
     </React.Fragment>
   )
@@ -93,6 +122,7 @@ function RenderRangeSetterComponent({
           data-tip=''
           defaultValue={currentRangeSliderRef}
           onChange={(rangeSlider) => currentRangeSliderMethod(rangeSlider.target.value)}
+          id="rrpsc_componentInput_rangeSliderValue"
         />
         <ReactTooltip id="range-slider-value">
           {currentRangeSliderRef}
@@ -113,12 +143,14 @@ function RenderRangeSetterComponent({
           alignItems: 'center'
         }}>
           <input type="number" 
-              placeholder="Enter a start value" 
-              className="rrpsc_componentInput "
+            placeholder="Enter a start value" 
+            className="rrpsc_componentInput"
+            id="rrpsc_componentInput_startValue"
           />
           <input type="number" 
             placeholder="Enter an end value" 
-            className="rrpsc_componentInput "
+            className="rrpsc_componentInput"
+            id="rrpsc_componentInput_endValue"
           />
         </div>
       </React.Fragment>

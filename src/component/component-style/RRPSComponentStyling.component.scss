@@ -62,3 +62,19 @@ input[type=range]:focus::-webkit-slider-runnable-track {
         width: 100%;
     }
 }
+
+.rrpsc_whiteButton {
+    background-color: white;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        background-color: #dddddd;
+    }
+}
+
+.rrpsc_blueButton {
+    background-color: rgb(74, 74, 211);
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        background-color: rgb(59, 59, 172);
+    }
+}
